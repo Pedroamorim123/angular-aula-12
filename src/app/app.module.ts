@@ -4,17 +4,25 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CadastroService } from './services/cadastro.service';
+import { ErrorInterceptor } from './services/interceptor-error';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastroComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CadastroService, ErrorInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
